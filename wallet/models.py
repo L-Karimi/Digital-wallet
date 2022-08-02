@@ -1,7 +1,7 @@
-from datetime import timezone
+# from datetime import timezone
+from django.utils import timezone
 from django.db import models
 
-# Create your models here.
 class Customer(models.Model):
     first_name=models.CharField(max_length=20,null=True)
     last_name=models.CharField(max_length=20,null=True)
@@ -15,9 +15,13 @@ class Customer(models.Model):
         ('M', 'Male'),
         ('F', 'Female'),
     )
+
     date_created = models.DateTimeField(default=timezone.now)
     nationality=models.CharField(max_length=20,null=True)
     profile_picture = models.ImageField(upload_to='profile_pictures/',null=True)
+
+
+
 
 class Currency(models.Model):
     amount=models.IntegerField()
@@ -33,8 +37,11 @@ class Wallet(models.Model):
     status=models.CharField(max_length=20,null=True)
     pin=models.TextField(max_length=6,null=True)
 
+
+
+
 class Account(models.Model):
-    account_number=models.IntegerField(default=0)
+    account_number=models.IntegerField()
     account_type=models.CharField(max_length=20,null=True)
     balance=models.IntegerField()
     name=models.CharField(max_length=20,null=True)
@@ -54,6 +61,8 @@ class Transaction(models.Model):
     receipt=models.ForeignKey('Receipts',on_delete=models.CASCADE, related_name='Transaction_receipt')
     original_account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name='Transaction_original_account')
     destination_account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name='Transaction_destination_account')
+
+
 
 class Card(models.Model):
     date_Issued=models.DateTimeField(default=timezone.now)
@@ -75,6 +84,9 @@ class Card(models.Model):
     wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='Card_wallet')
     account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name ='Card_account')     
 
+
+
+
 class ThirdParty(models.Model):
     account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name ='ThirdParty_account')
     name=models. CharField(max_length=15,null=True)
@@ -92,7 +104,8 @@ class Notifications(models.Model):
  status=models.CharField(max_length=12, choices=STATUS_CHOICES,null=True)
  date=models.DateTimeField(default=timezone.now)
  recipient=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Notifications_recipient')    
-
+ 
+ 
 class Receipts(models.Model):
     receipt_type=models.CharField(max_length=25, null=True)
     receipt_date=models.DateTimeField(default=timezone.now)
@@ -101,7 +114,8 @@ class Receipts(models.Model):
     total_Amount=models.IntegerField(default=0)
     transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Receipts_transaction')
     recipt_File=models.FileField(upload_to='wallet/')
-    
+
+ 
 
 class Loan(models.Model):
  loan_number=models.IntegerField()
@@ -111,9 +125,11 @@ class Loan(models.Model):
  wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='Loan_wallet')
  interest_rate=models.IntegerField()
  guaranter=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Loan_guaranter')
- due_date=models.DateField(default=timezone.now)
+ due_date=models.DateTimeField(default=timezone.now)
  loan_balance=models.IntegerField()
  loan_term=models.IntegerField()
+
+
 
 class Reward(models.Model):  
  transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Reward_transaction')
@@ -125,5 +141,4 @@ class Reward(models.Model):
     )
  gender = models.CharField(max_length=1, choices=GENDER_CHOICES,null=True)  
  bonus=models.CharField(max_length=25, null=True)
-
-  
+ 
