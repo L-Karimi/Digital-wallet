@@ -58,7 +58,7 @@ class Transaction(models.Model):
     transaction_type=models.CharField(max_length=10, choices=TRANSACTION_CHOICES,null=True)
     transaction_charge=models.IntegerField()
     transaction_date=models.DateTimeField(default=timezone.now)
-    receipt=models.ForeignKey('Receipts',on_delete=models.CASCADE, related_name='Transaction_receipt')
+    # receipt=models.ForeignKey('Receipts',on_delete=models.CASCADE, related_name='Transaction_receipt')
     original_account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name='Transaction_original_account')
     destination_account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name='Transaction_destination_account')
 
@@ -86,7 +86,7 @@ class Card(models.Model):
 
 
 
-
+# <class 'wallet.admin.ReceiptsAdmin'>: (admin.E108) The value of 'list_display[0]' refers to 'receipt_type', which is not a callable, an attribute of 'ReceiptsAdmin', or an attribute or method on 'wallet.Reward'.
 class ThirdParty(models.Model):
     account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name ='ThirdParty_account')
     name=models. CharField(max_length=15,null=True)
@@ -109,11 +109,11 @@ class Notifications(models.Model):
 class Receipts(models.Model):
     receipt_type=models.CharField(max_length=25, null=True)
     receipt_date=models.DateTimeField(default=timezone.now)
-    recipt_number=models.CharField(max_length=25, null=True)
+    receipt_number=models.CharField(max_length=25, null=True)
     account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name ='Receipts_account')
     total_Amount=models.IntegerField(default=0)
-    transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Receipts_transaction')
-    recipt_File=models.FileField(upload_to='wallet/')
+    # transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Receipts_transaction')
+    receipt_File=models.FileField(upload_to='wallet/')
 
  
 
