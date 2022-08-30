@@ -58,8 +58,8 @@ admin.site.register(Notifications,NotificationsAdmin)
     
     
 class ReceiptsAdmin(admin.ModelAdmin):
-    list_display = ('receipt_type',)
-    search_fields = ('receipt_file','receipt_date','receipt_type',)
+    list_display = ()
+    search_fields = ('receipt_file','receipt_date',)
 admin.site.register(Receipts,ReceiptsAdmin)
     
 class LoanAdmin(admin.ModelAdmin):
