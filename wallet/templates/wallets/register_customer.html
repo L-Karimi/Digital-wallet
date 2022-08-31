@@ -7,10 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h2> Customer  Registration</h2>
-<form method="post">{%csrf_token %}
-    {{form.as-p}}
-    <button type="submit" class=" save  btn btn-default">Save</button>
+
+ <h2> Customer Registration</h2>
+<form method="POST">{% csrf_token %}
+    {{form.as_p}}
+    <button  type="submit" class= "safe btn btn-default">save</button>
 </form>
 </body>
 </html>
