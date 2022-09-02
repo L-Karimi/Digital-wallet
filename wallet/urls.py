@@ -4,13 +4,13 @@ from .views import register_customer,register_card,register_currency,register_lo
 
 urlpatterns=[
     path("register/",register_customer,name="registration"),
-    path("register/",register_card,name="card"),
-    path("register/",register_currency,name="currency"),
-    path("register/",register_loan,name="loan"),
-    path("register/",register_notification,name="notification"),
-    path("register/",register_receipt,name="receipt"),
-    path("register/",register_reward,name="reward"),
-    path("register/",register_thirdparty,name="thirdparty"),
-    path("register/",register_transaction,name="transaction"),
+    path("card/",register_card,name="card"),
+    path("currency/",register_currency,name="currency"),
+    path("loan/",register_loan,name="loan"),
+    path("notification/",register_notification,name="notification"),
+    path("receipt/",register_receipt,name="receipt"),
+    path("reward/",register_reward,name="reward"),
+    path("thirdparty/",register_thirdparty,name="thirdparty"),
+    path("transaction/",register_transaction,name="transaction"),
 
     ]

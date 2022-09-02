@@ -1,13 +1,12 @@
 from django.shortcuts import render
-from .forms import CustomerRegistrationForm
+from .forms import CurencyRegistrationForm, CustomerRegistrationForm, ThridpartyRegistrationForm
 from .forms import CardRegistrationForm
 from .forms import LoanRegistrationForm
 
-from .forms import CurrencyRegistrationForm
+
 from .forms import NotificationRegistrationForm
 from .forms import ReceiptRegistrationForm
 from .forms import RewardRegistrationForm
-from .forms import ThirdpartyRegistrationForm
 from .forms import TransactionRegistrationForm
 
 
@@ -23,7 +22,7 @@ def register_card(request):
     return render(request,'wallets/register_card.html',
                   {"form":form})
 def register_currency(request):
-    form = CurrencyRegistrationForm()
+    form = CurencyRegistrationForm()
     return render(request,'wallets/register_currency.html',
                   {"form":form})
 def register_loan(request):
@@ -43,7 +42,7 @@ def register_reward(request):
     return render(request,'wallets/register_reward.html',
                   {"form":form})
 def register_thirdparty(request):
-    form = ThirdpartyRegistrationForm()
+    form = ThridpartyRegistrationForm()
     return render(request,'wallets/register_thirdparty.html',
                   {"form":form})
 def register_transaction(request):
