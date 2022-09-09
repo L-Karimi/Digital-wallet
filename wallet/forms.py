@@ -1,8 +1,11 @@
 
+from ast import If
+from urllib import request
 from django import forms
 from .models import Card, Currency, Customer, Loan, Notifications, Receipts, Reward, ThirdParty, Transaction
 
 class CustomerRegistrationForm(forms.ModelForm  ):
+    
     class Meta:#provides data from the inherited data class
         model=Customer
         fields= "__all__"

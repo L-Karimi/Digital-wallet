@@ -13,6 +13,14 @@ from .forms import TransactionRegistrationForm
 
 # Create your views here.
 def register_customer(request):
+    def register_Customer(request):
+        if request.method=="POST":
+            form=CustomerRegistrationForm(request.POST)
+            if form.is_valid();
+                form.save()
+        else:
+            form=CustomerRegistrationForm()
+        return render(request, 'customer/customer_registration.html',{'form':form})
     form = CustomerRegistrationForm()
     return render(request,'wallets/register_customer.html',
                   {"form":form})
