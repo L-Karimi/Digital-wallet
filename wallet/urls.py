@@ -1,16 +1,16 @@
 from django .urls import path
-from .views import register_customer,register_card,register_currency,register_loan,register_notification,register_receipt,register_reward,register_thirdparty,register_transaction
+from. import views
 
 
 urlpatterns=[
-    path("register/",register_customer,name="registration"),
-    path("card/",register_card,name="card"),
-    path("currency/",register_currency,name="currency"),
-    path("loan/",register_loan,name="loan"),
-    path("notification/",register_notification,name="notification"),
-    path("receipt/",register_receipt,name="receipt"),
-    path("reward/",register_reward,name="reward"),
-    path("thirdparty/",register_thirdparty,name="thirdparty"),
-    path("transaction/",register_transaction,name="transaction"),
-
+    path("register/",views.register_Customer,name="registration"),
+    path("card/",views.register_card,name="card"),
+    path("currency/",views.register_currency,name="currency"),
+    path("loan/",views.register_loan,name="loan"),
+    path("notification/",views.register_notification,name="notification"),
+    path("receipt/",views.register_receipt,name="receipt"),
+    path("reward/",views.register_reward,name="reward"),
+    path("thirdparty/",views.register_thirdparty,name="thirdparty"),
+    path("transaction/",views.register_transaction,name="transaction"),
+    path("customers/",views.list_customers,name="customers"),
     ]
