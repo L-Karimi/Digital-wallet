@@ -1,3 +1,4 @@
+from pydoc import visiblename
 from django .urls import path
 from. import views
 
@@ -13,4 +14,14 @@ urlpatterns=[
     path("thirdparty/",views.register_thirdparty,name="thirdparty"),
     path("transaction/",views.register_transaction,name="transaction"),
     path("customers/",views.list_customers,name="customers"),
+    path("card/",views.list_cards,name="cards"),
+    path("currency/",views.list_currencys,name="currencys"),
+    path("loan/",views.list_loans,name="loans"),
+    path("notifications/",views.list_notifications,name="notifications"),
+    path("receipt",views.list_receipt,name="receipt"),
+    path("reward",views.list_reward,name="reward"),
+    path("thirdparty",views.list_thirdparty,name="thirdparty"),
+    path("transaction",views.list_transaction,name="transaction"),
+    path("customers",views.list_customers,name="customers"),
+    
     ]

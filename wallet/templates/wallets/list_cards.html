@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+</head>
+<body>
+    <table >
+        {% for card in cards %}
+        <tr>
+            <td>{{card.date_issued}}</td>
+            <td>{{card.card_name}}</td>
+            <td>{{card.card_number}}</td>
+            <td>{{card.card_type}}</td>
+            <td>{{card.card_status}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
