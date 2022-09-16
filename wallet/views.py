@@ -2,7 +2,7 @@ from locale import currency
 from urllib import request
 from django.shortcuts import render
 
-from .models import Card, Currency, Customer, Notifications
+from .models import Card, Currency, Customer, Loan, Notifications, Receipts, Reward, ThirdParty, Transaction
 from .forms import CurencyRegistrationForm, CustomerRegistrationForm, ThridpartyRegistrationForm
 from .forms import CardRegistrationForm
 from .forms import LoanRegistrationForm
@@ -32,11 +32,10 @@ def register_card(request):
         form = CardRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-        else:
+    else:
             form=CardRegistrationForm()
-    return render(request,'wallets/register_card.html',
-                  {"form":form})
-def list_card(request):
+    return render(request,'wallets/register_card.html',{'form':form})
+def list_cards(request):
     cards=Card.objects.all()
     return render(request,'wallets/list_cards.html',{"cards" :cards })
 
@@ -46,38 +45,37 @@ def register_currency(request):
         form = CurencyRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-        else:
+    else:
             form=CurencyRegistrationForm()
     return render(request,'wallets/register_currency.html',
                   {"form":form})
-def list_currency(request):
+def list_currencys(request):
     currencys=Currency.objects.all()
-    return render(request,'wallets/list_currencys.html',{"currencies" :currencys })
+    return render(request,'wallets/list_currencys.html',{"currencys" :currencys })
 
 def register_loan(request):
     if request.method=="POST":
         form = LoanRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-        else:
+    else:
             form=LoanRegistrationForm()
     return render(request,'wallets/register_loan.html',
                   {"form":form})
-def list_loan(request):
-    loans=loans.objects.all()
+def list_loans(request):
+    loans=Loan.objects.all()
     return render(request,'wallets/list_loans.html',{"loans" :loans })
 
-    
 def register_notification(request):
     if request.method=="POST":
         form = NotificationRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-        else:
+    else:
             form=NotificationRegistrationForm()
     return render(request,'wallets/register_notification.html',
                   {"form":form})
-def list_notification(request):
+def list_notifications(request):
     notifications=Notifications.objects.all()
     return render(request,'wallets/list_notifications.html',{"notifications" :notifications })
 
@@ -87,40 +85,37 @@ def register_receipt(request):
         form = ReceiptRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-        else:
+    else:
             form=ReceiptRegistrationForm()
     return render(request,'wallets/register_receipt.html',
                   {"form":form})
-def list_receipt(request):
-    receipts=receipts.objects.all()
-    return render(request,'wallets/list_receipts.html',{"receipts" :receipts })
+def list_receipts(request):
+    receipts=Receipts.objects.all()
+    return render(request,'wallets/list_receipt.html',{"receipts" :receipts })
 
-    
 def register_reward(request):
     if request.method=="POST":
         form=RewardRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-        else:
+    else:
            form = RewardRegistrationForm()
     return render(request,'wallets/register_reward.html',
                   {"form":form})
-def list_reward(request):
-    rewards=rewards.objects.all()
+def list_rewardss(request):
+    rewards=Reward.objects.all()
     return render(request,'wallets/list_rewardss.html',{"rewards" :rewards })
 
-    
 def register_thirdparty(request):
     if request.method=="POST":
         form = ThridpartyRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-        else:
+    else:
             form=ThridpartyRegistrationForm()
-    return render(request,'wallets/register_thirdparty.html',
-                  {"form":form})
-def list_thirdparty(request):
-    thirdpartys=thirdpartys.objects.all()
+    return render(request, 'wallets/register_thirdparty.html',{'form':form})
+def list_thirdpartys(request):
+    thirdpartys=ThirdParty.objects.all()
     return render(request,'wallets/list_thirdpartys.html',{"thirdpartys" :thirdpartys })
 
 def register_transaction(request):
@@ -128,12 +123,12 @@ def register_transaction(request):
         form = TransactionRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-        else:
+    else:
             form=TransactionRegistrationForm()
-    return render(request,'wallets/register_transaction.html',
+    return render(request,'wallets/register_transactions.html',
                   {"form":form})
-def list_transaction(request):
-    transactions=transactions.objects.all()
+def list_transactions(request):
+    transactions=Transaction.objects.all()
     return render(request,'wallets/list_transactions.html',{"transactions" :transactions })
 
     
