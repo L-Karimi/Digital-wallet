@@ -89,9 +89,9 @@ def register_receipt(request):
             form=ReceiptRegistrationForm()
     return render(request,'wallets/register_receipt.html',
                   {"form":form})
-def list_receipts(request):
-    receipts=Receipts.objects.all()
-    return render(request,'wallets/list_receipt.html',{"receipts" :receipts })
+def list_receiptss(request):
+    receiptss=Receipts.objects.all()
+    return render(request,'wallets/list_receiptss.html',{"receiptss" :receiptss })
 
 def register_reward(request):
     if request.method=="POST":
@@ -102,9 +102,9 @@ def register_reward(request):
            form = RewardRegistrationForm()
     return render(request,'wallets/register_reward.html',
                   {"form":form})
-def list_rewardss(request):
+def list_rewards(request):
     rewards=Reward.objects.all()
-    return render(request,'wallets/list_rewardss.html',{"rewards" :rewards })
+    return render(request,'wallets/list_rewards.html',{"rewards" :rewards })
 
 def register_thirdparty(request):
     if request.method=="POST":
@@ -116,7 +116,7 @@ def register_thirdparty(request):
     return render(request, 'wallets/register_thirdparty.html',{'form':form})
 def list_thirdpartys(request):
     thirdpartys=ThirdParty.objects.all()
-    return render(request,'wallets/list_thirdpartys.html',{"thirdpartys" :thirdpartys })
+    return render(request,'wallets/list_thirdpartys.html',{"thirdpartys":thirdpartys })
 
 def register_transaction(request):
     if request.method=="POST":

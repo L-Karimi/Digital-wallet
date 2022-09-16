@@ -19,9 +19,9 @@ urlpatterns=[
     path("currencys/",views.list_currencys,name="currencys"),
     path("loans/",views.list_loans,name="loans"),
     path("notifications/",views.list_notifications,name="notifications"),
-    path("receipts",views.list_receipts,name="receipts"),
-    path("rewards",views.list_rewardss,name="rewards"),
-    path("thirdpartys",views.list_thirdpartys,name="thirdpartys"),
-    path("transactions",views.list_transactions,name="transactions"),
+    path("receipts/",views.list_receiptss,name="receipts"),
+    path("rewards/",views.list_rewards,name="rewards"),
+    path("thirdpartys/",views.list_thirdpartys,name="thirdpartys"),
+    path("transactions/",views.list_transactions,name="transactions"),
     # path("customers",views.list_customers,name="customers"),
     ]

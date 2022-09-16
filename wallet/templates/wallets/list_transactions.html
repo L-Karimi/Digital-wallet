@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Transaction</title>
 </head>
-<body>
-    <table >
+<body style="background-color:blue ;">
+    <table  class="table"  style="height: 10rem;margin: 40px; width: 60%; position: fixed; margin-left: 20%; margin-top: 10%; border: 10px solid rgb(251, 250, 250);">
         {% for transaction in transactions %}
         <tr>
-            <td>{{Transaction.transaction_ref}}</td>
-            <td>{{Transaction.wallet}}</td>
-            <td>{{Transaction.transaction_type}}</td>
-            <td>{{Transaction.transaction_charge}}</td>
-            <td>{{Transaction.transaction_date}}</td>
-            <td>{{Transaction.original_account}}</td>
-            <td>{{Transaction.destination_account}}</td>
+            <td style="color: rgb(235, 80, 80); background-color: rgb(226, 13, 245);">{{Transaction.transaction_ref}}</td>
+            <td style="color: rgb(235, 80, 80); background-color: rgb(226, 13, 245);">{{Transaction.wallet}}</td>
+            <td style="color: rgb(235, 80, 80); background-color: rgb(226, 13, 245);">{{Transaction.transaction_type}}</td>
+            <td style="color: rgb(235, 80, 80); background-color: rgb(226, 13, 245);">{{Transaction.transaction_charge}}</td>
+            <td style="color: rgb(235, 80, 80); background-color: rgb(226, 13, 245);">{{Transaction.transaction_date}}</td>
+            <td style="color: rgb(235, 80, 80); background-color: rgb(226, 13, 245);">{{Transaction.original_account}}</td>
+            <td style="color: rgb(235, 80, 80); background-color: rgb(226, 13, 245);">{{Transaction.destination_account}}</td>
         </tr>
         {% endfor %}
     </table>
