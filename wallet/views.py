@@ -132,6 +132,10 @@ def list_transactions(request):
     return render(request,'wallets/list_transactions.html',{"transactions" :transactions })
 
     
-            
+def customers_profile(request,id):  
+    customer=Customer.objects.get(id=id)
+    return render(request,"walllets/customers_profile.html" {"customers":Customer})
+
+      
 
     
