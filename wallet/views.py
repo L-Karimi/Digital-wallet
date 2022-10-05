@@ -1,6 +1,5 @@
 from locale import currency
 from urllib import request
-from django.shortcuts import render
 
 from .models import Card, Currency, Customer, Loan, Notifications, Receipts, Reward, ThirdParty, Transaction
 from .forms import CurencyRegistrationForm, CustomerRegistrationForm, ThridpartyRegistrationForm
@@ -10,9 +9,9 @@ from .forms import NotificationRegistrationForm
 from .forms import ReceiptRegistrationForm
 from .forms import RewardRegistrationForm
 from .forms import TransactionRegistrationForm
-
-
-
+from django. shortcuts import render,redirect
+from .import models
+from .import forms
 # Create your views here.
 def register_Customer(request):
     if request.method=="POST":
@@ -134,7 +133,110 @@ def list_transactions(request):
     
 def customers_profile(request,id):  
     customer=Customer.objects.get(id=id)
-    return render(request,"walllets/customers_profile.html" {"customers":Customer})
+    return render(request,"wallets/customers_profile.html" ,{"customers":Customer})
+
+def edit_customer(request,id):
+    customer=models.Customer.objects.get(id=id)
+    if request.method=="POST":
+        if forms.is_valid():
+            forms.save()
+            return redirect(request,"wallet/customers_edit.html",{"form":forms})
+    
+def cards_profile(request,id):  
+    card=Card.objects.get(id=id)
+    return render(request,"wallets/cards_profile.html" ,{"card":Card})
+
+def edit_card(request,id):
+    card=models.Card.objects.get(id=id)
+    if request.method=="POST":
+        if forms.is_valid():
+            forms.save()
+            return redirect(request,"wallet/edit_card.html",{"form":forms})
+    
+def currencys_profile(request,id):  
+    currency=Currency.objects.get(id=id)
+    return render(request,"wallets/currency_profile.html" ,{"currency":Currency})
+
+def edit_currency(request,id):
+    currency=models.Currency.objects.get(id=id)
+    if request.method=="POST":
+        if forms.is_valid():
+            forms.save()
+            return redirect(request,"wallet/edit_currency.html",{"form":forms})
+    
+def loan_profile(request,id):  
+    loan=Loan.objects.get(id=id)
+    return render(request,"wallets/loan_profile.html" ,{"loan":Loan})
+
+def edit_loan(request,id):
+    loan=models.Loan.objects.get(id=id)
+    if request.method=="POST":
+        if forms.is_valid():
+            forms.save()
+            return redirect(request,"wallet/edit_loan.html",{"form":forms})
+    
+def notifications_profile(request,id):  
+    notifications=Notifications.objects.get(id=id)
+    return render(request,"wallets/notifications_profile.html" ,{"notifications":Notifications})
+
+def edit_notifications(request,id):
+    notifications=models.Notifications.objects.get(id=id)
+    if request.method=="POST":
+        if forms.is_valid():
+            forms.save()
+            return redirect(request,"wallet/edit_notifications.html",{"form":forms})
+    
+def receipts_profile(request,id):  
+    receipts=Receipts.objects.get(id=id)
+    return render(request,"wallets/receipts_profile.html" ,{"receipts":Receipts})
+
+def edit_receipts(request,id):
+    receipts=models.Receipts.objects.get(id=id)
+    if request.method=="POST":
+        if forms.is_valid():
+            forms.save()
+            return redirect(request,"wallet/edit_receipts.html",{"form":forms})
+    
+def reward_profile(request,id):  
+    reward=Reward.objects.get(id=id)
+    return render(request,"wallets/reward_profile.html" ,{"reward":Reward})
+
+def edit_reward(request,id):
+    reward=models.Reward.objects.get(id=id)
+    if request.method=="POST":
+        if forms.is_valid():
+            forms.save()
+            return redirect(request,"wallet/edit_reward.html",{"form":forms})
+    
+def thirdparty_profile(request,id):  
+    thirdparty=ThirdParty.objects.get(id=id)
+    return render(request,"wallets/thirdparty_profile.html" ,{"thirdparty":ThirdParty})
+
+def edit_thirdparty(request,id):
+    thirdparty=models.ThirdParty.objects.get(id=id)
+    if request.method=="POST":
+        if forms.is_valid():
+            forms.save()
+            return redirect(request,"wallet/edit_thirdparty.html",{"form":forms})
+    
+      
+def transaction_profile(request,id):  
+    transaction=Transaction.objects.get(id=id)
+    return render(request,"wallets/transaction_profile.html" ,{"transaction":Transaction})
+
+def edit_transaction(request,id):
+    transaction=models.Transaction.objects.get(id=id)
+    if request.method=="POST":
+        if forms.is_valid():
+            forms.save()
+            return redirect(request,"wallet/edit_transaction.html",{"form":forms})
+    
+      
+      
+      
+      
+      
+      
 
       
 

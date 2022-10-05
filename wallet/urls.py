@@ -24,4 +24,7 @@ urlpatterns=[
     path("thirdpartys/",views.list_thirdpartys,name="thirdpartys"),
     path("transactions/",views.list_transactions,name="transactions"),
     # path("customers",views.list_customers,name="customers"),
+    path("customers/init.id",customers_profile),
+    path("customers_edit/init.edit",edit_customer)
+
     ]
